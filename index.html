@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e7fbf8">
+  <meta name="description" content="Safe videos, stories and ebooks for kids. Explore KidsVidStudio Pro for a joyful, ad-free reading and watching experience.">
+  <title>KidsVidStudio — Big fun for little imaginations</title>
+  <style>
+    :root { color-scheme: light; --ink:#183b45; --muted:#58727a; --teal:#16a99c; --teal-dark:#087d77; --teal-pale:#e7fbf8; --pink:#ff7298; --pink-pale:#fff0f5; --sun:#ffd667; --paper:#fffefa; --line:#dcece8; --shadow:0 18px 50px rgba(24,82,83,.10); }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family: ui-rounded,"SF Pro Rounded","Segoe UI",system-ui,-apple-system,sans-serif; line-height:1.55; }
+    a { color: inherit; }
+    .wrap { width:min(100% - 36px,1080px); margin-inline:auto; }
+    .topbar { padding:18px 0; }
+    .brand { display:inline-flex; align-items:center; gap:10px; text-decoration:none; font-size:1.05rem; font-weight:850; letter-spacing:-.03em; }
+    .brand-mark { display:grid; place-items:center; width:38px; height:38px; border-radius:13px; background:var(--teal); color:white; font-size:21px; box-shadow:0 5px 0 #087d77; }
+    .hero { position:relative; overflow:hidden; padding:52px 0 60px; background:var(--teal-pale); }
+    .hero::before,.hero::after { content:""; position:absolute; border-radius:50%; pointer-events:none; }
+    .hero::before { width:180px; height:180px; right:-72px; top:-65px; background:rgba(255,114,152,.22); }
+    .hero::after { width:90px; height:90px; left:-38px; bottom:15px; background:rgba(255,214,103,.55); }
+    .hero-inner { position:relative; z-index:1; display:grid; gap:32px; align-items:center; }
+    .eyebrow { display:inline-flex; gap:8px; align-items:center; margin:0 0 15px; color:var(--teal-dark); font-size:.78rem; font-weight:850; letter-spacing:.1em; text-transform:uppercase; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { max-width:680px; margin-bottom:18px; font-size:clamp(2.45rem,11vw,4.2rem); line-height:1.04; letter-spacing:-.065em; }
+    .hero-copy { max-width:560px; margin-bottom:26px; color:var(--muted); font-size:1.08rem; }
+    .button { display:inline-flex; justify-content:center; align-items:center; min-height:52px; padding:13px 22px; border:0; border-radius:16px; background:var(--pink); color:#fff; font-weight:850; text-decoration:none; box-shadow:0 5px 0 #df557d; transition:transform .16s ease, box-shadow .16s ease; }
+    .button:hover { transform:translateY(-2px); box-shadow:0 7px 0 #df557d; }
+    .button:focus-visible,a:focus-visible { outline:3px solid #145c68; outline-offset:4px; }
+    .tiny-note { margin:15px 0 0; color:var(--muted); font-size:.86rem; }
+    .hero-art { position:relative; display:grid; place-items:center; min-height:230px; }
+    .storybook { position:relative; display:grid; place-items:center; width:190px; height:220px; border:8px solid white; border-radius:28px 36px 30px 34px; background:linear-gradient(145deg,#ff8fae,#ffb7c9); box-shadow:12px 15px 0 rgba(8,125,119,.17), var(--shadow); transform:rotate(5deg); }
+    .storybook::before { content:""; position:absolute; top:0; bottom:0; left:19px; width:4px; background:rgba(255,255,255,.56); }
+    .storybook-face { text-align:center; color:white; font-size:5.2rem; line-height:1; }
+    .storybook-label { margin-top:12px; color:white; font-size:.86rem; font-weight:900; letter-spacing:.05em; }
+    .sparkle { position:absolute; color:#edaa23; font-size:2rem; }
+    .sparkle.one { top:4px; right:19%; }
+    .sparkle.two { bottom:15px; left:14%; color:var(--pink); font-size:1.6rem; }
+    .section { padding:64px 0; }
+    .section-heading { max-width:630px; margin:0 auto 30px; text-align:center; }
+    .section-heading h2 { margin-bottom:10px; font-size:clamp(1.8rem,7vw,2.7rem); line-height:1.12; letter-spacing:-.05em; }
+    .section-heading p { margin-bottom:0; color:var(--muted); }
+    .feature-grid { display:grid; grid-template-columns:1fr; gap:14px; }
+    .feature { display:flex; align-items:flex-start; gap:14px; padding:19px; border:1px solid var(--line); border-radius:20px; background:#fff; }
+    .feature-icon { flex:0 0 44px; display:grid; place-items:center; width:44px; height:44px; border-radius:15px; background:var(--teal-pale); font-size:1.35rem; }
+    .feature:nth-child(even) .feature-icon { background:var(--pink-pale); }
+    .feature h3 { margin:1px 0 4px; font-size:1rem; }
+    .feature p { margin:0; color:var(--muted); font-size:.91rem; }
+    .pricing { background:#f6fbf9; }
+    .plan-grid { display:grid; grid-template-columns:1fr; gap:18px; max-width:770px; margin:0 auto; }
+    .plan { position:relative; padding:28px 24px; border:1px solid var(--line); border-radius:24px; background:white; box-shadow:0 10px 35px rgba(24,82,83,.06); }
+    .plan.best { border:2px solid var(--teal); }
+    .badge { position:absolute; top:-14px; right:20px; padding:5px 12px; border-radius:999px; background:var(--sun); color:#694e08; font-size:.73rem; font-weight:950; letter-spacing:.05em; }
+    .plan h3 { margin:0 0 6px; font-size:1.18rem; }
+    .plan-intro { margin:0 0 20px; color:var(--muted); font-size:.91rem; }
+    .price { display:flex; align-items:baseline; gap:5px; margin:0 0 21px; }
+    .price strong { font-size:2.65rem; line-height:1; letter-spacing:-.06em; }
+    .price span { color:var(--muted); font-size:.94rem; }
+    .plan ul { display:grid; gap:9px; margin:0 0 24px; padding:0; list-style:none; color:var(--muted); font-size:.93rem; }
+    .plan li::before { content:"✓"; margin-right:9px; color:var(--teal-dark); font-weight:950; }
+    .plan .button { width:100%; background:var(--teal); box-shadow:0 5px 0 #087d77; }
+    .plan.best .button { background:var(--pink); box-shadow:0 5px 0 #df557d; }
+    .billing-note { margin:20px 0 0; color:var(--muted); font-size:.84rem; text-align:center; }
+    footer { padding:26px 0 34px; border-top:1px solid var(--line); color:var(--muted); font-size:.9rem; text-align:center; }
+    footer p { margin:0; }
+    footer a { color:var(--teal-dark); font-weight:750; text-underline-offset:3px; }
+    @media (min-width:680px) {
+      .wrap { width:min(100% - 64px,1080px); }
+      .hero { padding:72px 0 78px; }
+      .hero-inner { grid-template-columns:1.25fr .75fr; gap:20px; }
+      .hero-art { min-height:300px; }
+      .storybook { width:220px; height:250px; }
+      .feature-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+      .section { padding:78px 0; }
+      .plan-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; }
+      .plan { padding:32px 28px; }
+    }
+    @media (min-width:940px) { .feature-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="KidsVidStudio home"><span class="brand-mark" aria-hidden="true">✦</span>KidsVidStudio</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-inner">
+        <div>
+          <p class="eyebrow"><span aria-hidden="true">☀</span> A little more wonder every day</p>
+          <h1 id="hero-title">KidsVidStudio: safe videos, stories and ebooks for kids</h1>
+          <p class="hero-copy">A colorful world of stories and screen-time favorites, made for curious kids and peace of mind for grown-ups.</p>
+          <a class="button" href="#plans">Explore Pro plans <span aria-hidden="true">&nbsp;→</span></a>
+          <p class="tiny-note">Kid-safe fun. No ads. Cancel anytime.</p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <span class="sparkle one">✦</span>
+          <div class="storybook"><div><div class="storybook-face">☁️</div><div class="storybook-label">DREAM BIG!</div></div></div>
+          <span class="sparkle two">✦</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="features-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="eyebrow">Good things for growing minds</p>
+          <h2 id="features-title">One happy place for their next favorite thing</h2>
+          <p>Enjoy more of what kids love, with a thoughtful experience parents can feel good about.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature"><span class="feature-icon" aria-hidden="true">▶️</span><div><h3>Unlock all videos &amp; stories</h3><p>Open up the full library of watch-and-read adventures.</p></div></article>
+          <article class="feature"><span class="feature-icon" aria-hidden="true">📚</span><div><h3>Read every ebook</h3><p>Turn story time into a whole shelf of discoveries.</p></div></article>
+          <article class="feature"><span class="feature-icon" aria-hidden="true">✨</span><div><h3>Create unlimited AI stories</h3><p>Dream up new tales for endlessly imaginative days.</p></div></article>
+          <article class="feature"><span class="feature-icon" aria-hidden="true">🚫</span><div><h3>No ads</h3><p>Enjoy a calmer experience with no advertising.</p></div></article>
+          <article class="feature"><span class="feature-icon" aria-hidden="true">🛡️</span><div><h3>Kid-safe</h3><p>A playful, age-minded space for little explorers.</p></div></article>
+          <article class="feature"><span class="feature-icon" aria-hidden="true">💛</span><div><h3>Cancel anytime</h3><p>Choose the plan that works for your family.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pricing" id="plans" aria-labelledby="plans-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="eyebrow">Pick your kind of magic</p>
+          <h2 id="plans-title">More stories. More smiles.</h2>
+          <p>All the good stuff in one simple membership.</p>
+        </div>
+        <div class="plan-grid">
+          <article class="plan">
+            <h3>Pro Monthly</h3>
+            <p class="plan-intro">Flexible fun, month to month.</p>
+            <p class="price"><strong>$9.99</strong><span>/month</span></p>
+            <ul><li>Unlock all videos &amp; stories</li><li>Read every ebook</li><li>Create unlimited AI stories</li><li>No ads · kid-safe · cancel anytime</li></ul>
+            <!-- TODO: Replace the placeholder href with the Stripe monthly payment link when available. -->
+            <a class="button" href="#" data-stripe-monthly>Subscribe monthly</a>
+          </article>
+          <article class="plan best">
+            <span class="badge">BEST VALUE</span>
+            <h3>Pro Annual</h3>
+            <p class="plan-intro">A full year of imagination.</p>
+            <p class="price"><strong>$79.99</strong><span>/year</span></p>
+            <ul><li>Unlock all videos &amp; stories</li><li>Read every ebook</li><li>Create unlimited AI stories</li><li>No ads · kid-safe · cancel anytime</li></ul>
+            <!-- TODO: Replace the placeholder href with the Stripe annual payment link when available. -->
+            <a class="button" href="#" data-stripe-annual>Subscribe annually</a>
+          </article>
+        </div>
+        <p class="billing-note">Secure checkout links are coming soon. Subscription buttons are placeholders for now.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap"><p>Questions? <a href="mailto:adamhil83@gmail.com">adamhil83@gmail.com</a></p></div>
+  </footer>
+</body>
+</html>
